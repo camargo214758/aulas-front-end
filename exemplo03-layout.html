@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Layout</title>
+<style>
+
+/* Regras de uso geral 
+O que codificamos aqui, é tudo que será usado no site não importando o muito o tamanho da tela. Neste momento, não usamos media queries. */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+/* IMPORTANTE PARA O USO DA MEDIDA REM */
+html { font-size: 15px; }
+
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+
+#container {
+    box-shadow: black 0 0 5px;
+    padding: 5px;
+}
+
+header {
+    background-color: dodgerblue;
+    text-align: center;
+    height: 100px;
+}
+
+/* CSS Reset: remoção de valores padrão */
+body, h1, h2, p {
+    margin: 0;
+    padding: 0;
+}
+
+h1 { font-size: 2rem; }
+h2 { font-size: 1.2rem; }
+p { font-size: 1.1rem; }
+
+nav { background-color: yellow; }
+
+article { padding: 5px; }
+
+#coluna-um { background-color: darkseagreen; }
+#coluna-dois { background-color: orange; }
+#coluna-tres { background-color: salmon; }
+
+footer { background-color: grey; }
+
+
+/* Regras para Design Responsivo */
+
+/* 1ª Media Query: Telas a partir de
+700px de largura */
+@media screen and (min-width: 700px) {
+    html { font-size: 18px; }
+
+    header { 
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    nav { width: 50%; }
+
+    main { /* Flex Container */
+        display: flex;
+        flex-wrap: wrap; /* permite quebra no fluxo */
+    }
+
+    #coluna-um, #coluna-dois { width: 50%; }
+}
+
+/* EXERCÍCIO: Crie uma nova media query para telas a partir
+de 822px, que faça as seguintes alterações:
+
+-Tamanho geral de fonte: 20px
+-Largura das colunas: 33.33%
+-Limite o tamanho da container para até 1200px e também
+a centralize */
+
+@media screen and (min-width: 822px) {
+    html { font-size: 20px; }
+    
+    /* Versão 1: usando seletores ID 
+    (específicos para estes artigos) */
+    #coluna-um, #coluna-dois, #coluna-tres { width: 33.33%; }
+    
+    /* Versão 2: usandor seletor TAG
+    (vale para todos os artigos) - NÃO DÁ CERTO, DEVIDO À PRECEDÊNCIA MAIOR DO SELETOR ID*/
+    /* article { width: 33.33%; } */
+
+    #container {
+        max-width: 1200px;
+        margin: auto;
+    }
+}
+
+</style>
+</head>
+<body>
+    
+<div id="container">
+
+    <!-- CABEÇALHO -->
+    <header>
+        <h1>Site XYZ</h1>
+        <nav>
+            <a href="">Link 1</a>
+            <a href="">Link 2</a>
+            <a href="">Link 3</a>
+        </nav>
+    </header>
+
+    <!-- CONTEÚDO -->
+    <main>
+        <article id="coluna-um">
+            <h2>UM</h2>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident soluta sunt quas iste accusantium nesciunt illo porro dicta sapiente architecto? Hic facere aperiam corporis magni atque dolor consectetur reprehenderit praesentium, ut sint natus. Explicabo omnis fuga nesciunt officiis iusto molestiae similique saepe optio labore autem, nihil aperiam? Necessitatibus, cumque alias.</p>
+        </article>
+
+        <article id="coluna-dois">
+            <h2>DOIS</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed dolores blanditiis obcaecati deleniti iste sunt eligendi saepe rerum omnis ab amet, quos quia, commodi reprehenderit. Delectus id quia, doloremque ipsam libero amet unde aspernatur magnam praesentium magni facilis error deleniti placeat doloribus? Ex commodi odio quia omnis consequatur quasi nisi!</p>
+        </article>
+
+        <article id="coluna-tres">
+            <h2>TRÊS</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati quisquam, alias delectus consequatur, doloribus, unde autem necessitatibus fuga blanditiis voluptas provident! Fugit quos aut, praesentium ipsa architecto, voluptatibus assumenda consequatur quis ullam excepturi quaerat nostrum eligendi! Ex nesciunt veniam ducimus id quaerat nulla, error esse! Fuga laborum animi reprehenderit esse.</p>
+        </article>
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <p>Layout de Exemplo</p>
+    </footer>
+</div>    
+    
+</body>
+</html>

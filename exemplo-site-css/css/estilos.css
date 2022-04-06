@@ -1,0 +1,105 @@
+/* REGRAS CSS */
+
+/* Alterando o Box Model para TODOS os elementos da página */
+*, *::after, *::before { box-sizing: border-box; }
+
+/* Pseudo-elementos ::after e ::before 
+Permite adicionar conteúdo dentro de conteúdo (depois/antes)*/
+h2::after { content: " :) "; }
+h2::before { content: " :( "; }
+
+/* SELETOR TAG */
+body { background-image: url(../imagens/tarde.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* SELETOR IDENTIFICADO/ID */
+#container {
+    background-color: rgba(255, 255, 255, 0.774);
+    
+    /* Quando combinamos largura e margem
+    automática, o efeito prático é a centralização
+    da caixa (div) */
+    width: 70%;
+    margin: auto;
+
+    /* Espaçamento/Enchimento interno */
+    padding: 15px;
+
+    /* MINI-EXERCÍCIO 
+    1) COLOQUE BORDA ARREDONDADA
+    2) COLOQUE UMA SOMBRA NA DIV */
+    border-radius: 10px;
+    box-shadow: red 50px 50px 50px;
+}
+
+/* Seletor Tag
+Finalidade desta regra: tornar as imagens flexíveis */
+img { max-width: 100%; }
+
+
+h1 {
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-transform: uppercase;
+    border-bottom: solid 5px;
+    font-size: 50px;
+}
+
+h2 { 
+    color: lightblue;
+    text-shadow: black 2px 2px 3px, 
+                black -1px -1px 3px;
+}
+
+
+/* Seletor CLASSE */
+.centralizar { text-align: center; }
+
+.sombra-texto { text-shadow: black 3px 3px 4px; }
+
+.canto-arredondado { border-radius: 10px; }
+
+.destaque {
+    background-color: yellow;
+    border: solid 1px;
+    padding: 5px;
+}
+
+
+/* Seletor DESCENDENTE */
+nav a { /* Regra inicial do link */
+    text-decoration: none;
+    color: white;
+    background-color: black;
+    font-weight: bold;
+
+    /* Primeiro valor: cima/baixo
+    Segundo valor: esquerda/direita */
+    padding: 15px 30px;
+
+    display: inline-block;
+    width: 33.33%;
+    text-align: center;
+}
+
+/* Regra de acionamento do link
+Pseudo-classe :hover */
+nav a:hover {
+    background-color: darkblue;
+    color: yellow;
+}
+
+figure {
+    margin: 0;
+    text-align: center;
+}
+
+figure img { 
+    filter: grayscale(100%); 
+    transition: 2s; 
+}
+
+figure img:hover { filter: grayscale(0); }
